@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Page</title>
+    <style>
+        body {
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.8); /* 色を薄める */
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #426579;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .buttons {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        header .buttons button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>タイトル</h1>
+        <div class="buttons">
+            <button>X</button>
+            <button onclick="window.location.href='https://github.com'">GitHub</button>
+        </div>
+    </header>
+    <div class="content">
+        <textarea id="markdown" style="width: 100%; height: 300px;"></textarea>
+        <div id="preview"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        const textarea = document.getElementById('markdown');
+        const preview = document.getElementById('preview');
+
+        textarea.addEventListener('input', () => {
+            preview.innerHTML = marked(textarea.value);
+        });
+    </script>
+</body>
+</html>
